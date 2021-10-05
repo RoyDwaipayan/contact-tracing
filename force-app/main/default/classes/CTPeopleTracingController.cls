@@ -29,6 +29,11 @@ public with sharing class CTPeopleTracingController {
                      mapOfPeopleTracing.put(trace.Person_1__c, new Set<Id>());
                  }
                  mapOfPeopleTracing.get(trace.Person_1__c).add(trace.Person_2__c);
+
+                 if(!mapOfPeopleTracing.containsKey(trace.Person_2__c)){
+                    mapOfPeopleTracing.put(trace.Person_2__c, new Set<Id>());
+                }
+                mapOfPeopleTracing.get(trace.Person_2__c).add(trace.Person_1__c);
  
              }
      }
